@@ -1,4 +1,4 @@
-# E-commerce Customer Insights | Power BI Dashboard
+# E-commerce | Sales Analysis & Customer Insights | Power BI Dashboard
 
 ![Power BI](https://img.shields.io/badge/Power%20BI-Professional-blue?style=flat-square&logo=powerbi)
 ![DAX](https://img.shields.io/badge/DAX-Advanced-orange?style=flat-square)
