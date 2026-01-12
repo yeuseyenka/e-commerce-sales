@@ -187,8 +187,8 @@ Use these slicers to drill down into specific customer segments and analyze thei
 ## 📞 Contact & License
 
 **Author:** [Eugene Yeuseyenka](https://github.com/yeuseyenka)  
-**Email:** [your.email@example.com](eyeuseyenka@gmail.com)  
-**LinkedIn:** [linkedin.com/in/your-profile](https://www.linkedin.com/in/eugene-yeuseyenka/)
+**Email:** [eyeuseyenka@gmail.com](mailto:eyeuseyenka@gmail.com)  
+**LinkedIn:** [Eugene Yeuseyenka](https://www.linkedin.com/in/eugene-yeuseyenka/)
 
 **License:** MIT License — free to use for education, portfolio, and commercial purposes.
 
