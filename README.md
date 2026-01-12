@@ -1,62 +1,180 @@
-# Retail Sentiment & Revenue Optimization Dashboard
+# E-commerce Customer Insights | Power BI Dashboard
 
-### A Strategic Framework for Pricing and Promotional Analytics
+![Power BI](https://img.shields.io/badge/Power%20BI-Professional-blue?style=flat-square&logo=powerbi)
+![DAX](https://img.shields.io/badge/DAX-Advanced-orange?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active-green?style=flat-square)
 
-![Status](https://img.shields.io/badge/Status-Complete-success) ![Power BI](https://img.shields.io/badge/Platform-Power_BI-yellow) ![Domain](https://img.shields.io/badge/Domain-Retail_Strategy-blue)
+## 📊 Project Overview
 
----
+Interactive Power BI dashboard for analyzing customer behavior and lifetime value in e-commerce. The report identifies key demographic segments, evaluates customer satisfaction, and helps determine target groups for retention and upsell actions.
 
-## 1. Executive Summary
-
-In high-volume e-commerce environments, standard performance metrics (Average Review Score, Gross Sales) often mask critical underlying variances in customer experience. This project introduces an advanced analytics framework designed to **bridge the gap between volume-centric reporting and qualitative sentiment distribution.**
-
-By leveraging **Diverging Stacked Bar** logic and custom DAX measures, this solution allows stakeholders to move beyond simple averages. It identifies polarized product categories—those with high volatility (simultaneous high negative and high positive feedback)—to enable targeted pricing strategies, inventory rationalization, and promotional allocation.
-
----
-
-## 2. Business Problem & Solution
-
-### The Challenge
-Standard reporting aggregates customer ratings into simple averages (e.g., "3.8/5 Stars"). This approach fails to distinguish between:
-* **Stable Mediocrity:** A product where all users rate it a "3".
-* **High Polarization:** A product where 50% rate "1" and 50% rate "5".
-
-The latter represents a high-risk, high-reward segment that requires a completely different strategic approach than the former.
-
-### The Analytical Solution
-This dashboard implements a **Sentiment Polarity Model** that:
-1.  **Visualizes Variance:** Replaces standard box plots with **Diverging Stacked Bar Charts** to align customer sentiment around a neutral baseline.
-2.  **Segments Categories:** Isolates "Consistent Winners" (High 4s/5s) for price premiums vs. "Polarized Segments" (High 1s/5s) for quality intervention.
-3.  **Directs Strategy:** Provides clear signals for which categories warrant marketing spend versus those requiring operational fixes.
+**Data Period:** Jan 2025 – Dec 2025  
+**Number of Customers:** 331  
+**Total Revenue:** $703,841  
 
 ---
 
-## 3. Key Insights & Case Study
+## 🎯 Key KPIs
 
-Based on the `synthetic_online_retail_data.csv` analysis, the dashboard revealed critical insights regarding the **Sports & Outdoors** category:
-
-* **Observation:** While maintaining a competitive average score, this category exhibited the highest **Polarity Index**. It captured the highest percentage of positive sentiment (77.5%) but also the highest negative sentiment (15.5%), with minimal neutral feedback.
-* **Strategic Implication:** The category is not "average"; it is "controversial."
-* **Recommendation:**
-    * **For Positive SKU clusters:** Implement premium pricing strategies.
-    * **For Negative SKU clusters:** Initiate root-cause analysis on returns and defects immediately.
-    * **Promotion:** High suitability for targeted ad campaigns due to strong brand advocates, provided specific low-quality SKUs are filtered out.
+| Metric | Value | Trend |
+|--------|-------|-------|
+| **Customers** | 331 | ↑ +1.5% (+5) |
+| **Average Review Score** | 3.9 | ↓ -2.5% (-0.1) |
+| **Sales per Customer** | $2,126 | ↑ +0.3% (+$7) |
+| **Orders per Customer** | 2.81 | ↓ -6.5% (-0.20) |
 
 ---
 
-## 4. Technical Architecture
+## 📈 Main Visuals
 
-### Data Source
-* **Dataset:** `synthetic_online_retail_data.csv`
-* **Volume:** ~2,700 Transactional records including customer demographics, order details, and discrete review scores (1-5).
+### 1. **Sales Summary by Age Bin**
+Detailed table broken down by age groups:
+- Total Sales, Sales per Customer, Orders per Customer
+- Average Order Value (AOV), Average Review Score
+- Identifies age cohorts with highest revenue (18-24: $331.5K)
 
-### Analytical Stack
-* **Visualization:** Power BI Desktop
-* **Data Transformation:** Power Query (M).
-* **Modeling:** DAX (Data Analysis Expressions)
+### 2. **Customer Value Segmentation** (Scatter Plot)
+- **X-axis:** Average Order Value (AOV)  
+- **Y-axis:** Orders per Customer  
+- **Size/Color:** Total Sales per customer  
+- **Clusters:**
+  - 🔵 **High-Value Loyal:** 18-24 (young buyers with frequent purchases)
+  - 🟠 **One-Time Big Spenders:** 45-54, 35-44 (infrequent but large orders)
+  - 🟡 **Low-Value:** 65-74 (few purchases and small order value)
 
-### Key DAX Methodologies
-The core visualization relies on a calculated **Diverging Scale**:
-* **Negative Sentiment (Scores 1 & 2):** Converted to negative values to plot left of the Y-axis.
-* **Neutral Sentiment (Score 3):** Bisected (50/50 split) across the axis to minimize visual bias.
-* **Positive Sentiment (Scores 4 & 5):** plotted positively to visualize net satisfaction breadth.
+### 3. **Customer Review Scoring** (Diverging Stacked Bar)
+Distribution of ratings (1-5 stars) by category:
+- 🔴 **Negative (1-2)** | ⚫ **Neutral (3)** | 🟢 **Positive (4-5)**
+- **Problem Categories:** Electronics (13% negative), Fashion (25% negative)
+- **Strengths:** Sports & Outdoors (79% positive), Home & Living (74%)
+
+### 4. **Sales by Age & Gender** (Clustered Column)
+Comparison of sales by age groups and gender:
+- **Legend:** Female (F), Male (M), Not disclosed
+- **Insight:** Youth (18-24) leads in revenue; older age groups are underutilized
+
+---
+
+## 💾 Technical Details
+
+### Tools & Technologies
+- **BI Platform:** Power BI Desktop / Service  
+- **Language:** DAX (Data Analysis Expressions)  
+- **Data Preparation:** Power Query (M language)  
+- **Database:** Excel / CSV  
+- **Version Control:** Git / GitHub  
+
+### DAX Measures Used
+
+```dax
+Total Orders := COUNTROWS('Online Retail')
+
+Distinct Customers := DISTINCTCOUNT('Online Retail'[customer_id])
+
+Orders per Customer := DIVIDE([Total Orders], [Distinct Customers])
+
+Average Order Value per Customer := DIVIDE([Total Revenue], [Distinct Customers])
+
+Negative % := DIVIDE(
+    CALCULATE(COUNTROWS('Online Retail'), 'Online Retail'[review_score] IN {1, 2}),
+    CALCULATE(COUNTROWS('Online Retail'), NOT ISBLANK('Online Retail'[review_score]))
+) * 100
+Slicers (Filters)
+Year: 2025
+
+Category & Product: All / Specific
+
+Payment Method: All / Card / Cash
+
+City: All / Specific cities
+
+Age Bin: All / 18-24, 25-34, 35-44, 45-54, 55-64, 65-74
+
+Gender: All / Female / Male / Not disclosed
+
+📋 Business Insights
+✅ Strengths
+Youth (18-24) — Most valuable customers:
+
+47% of total revenue ($331K)
+
+High AOV ($769)
+
+Good satisfaction score (3.92/5)
+
+High satisfaction in Sports & Outdoors and Home & Living categories (79% and 74% positive ratings)
+
+Stable portfolio: 331 customers with regular purchases
+
+⚠️ Problem Areas
+Electronics & Fashion — High share of negative reviews:
+
+Electronics: 13% negative (quality? shipping issues?)
+
+Fashion: 25% negative (size, material?)
+
+Declining Orders per Customer: -6.5% over period
+
+Customers ordering less frequently (2.81 → 2.61)
+
+Loyalty program implementation needed
+
+Underutilized age groups:
+
+65-74: only 3% of revenue with 13 customers
+
+Opportunity: targeted campaigns, adapted UX
+
+🎯 Recommendations
+For Electronics/Fashion: conduct quality audit, improve product descriptions, update photos
+
+For youth (18-24): implement referral bonus program (they're already loyal)
+
+For older customers: create landing page with large fonts, free shipping, special offers
+
+General: launch email campaign promoting repeat purchases (combat -6.5% decline in Orders per Customer)
+
+📂 File Structure
+text
+📁 ecommerce-powerbi-insights/
+├── 📄 README.md (this file)
+├── 📊 E-commerce-Customer-Insights.pbix (Power BI file)
+├── 📸 screenshots/
+│   ├── dashboard-overview.png
+│   ├── customer-segmentation.png
+│   └── review-scoring.png
+└── 📝 notes.md (additional notes, DAX formulas)
+🚀 How to Use
+To View the Report
+Download the E-commerce-Customer-Insights.pbix file
+
+Open in Power BI Desktop (free download at powerbi.microsoft.com)
+
+Refresh the data source if needed (if connected to a database or Excel)
+
+Use the slicers on the left to filter by categories, age groups, cities
+
+To Edit/Adapt
+Edit DAX measures in Home → Manage Metrics
+
+Change the data source (Home → Transform data)
+
+Add new visuals, slicers, or measures as needed
+
+Publish to Power BI Service for online access (File → Publish)
+
+📞 Contact & License
+Author: Eugene Yeuseyenka
+Email: your.email@example.com
+LinkedIn: Link to your profile
+
+License: MIT License — free to use for education and portfolio purposes.
+
+🔗 Relevant Links
+Power BI Documentation
+
+DAX Function Reference
+
+Power Query M Reference
+
+Last Updated: 29 Dec 2025 | Status: ✅ Active and Maintained
