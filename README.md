@@ -104,7 +104,7 @@ Use these slicers to drill down into specific customer segments and analyze thei
    - **Fashion:** 25% negative reviews (sizing, material, or description mismatches?)
 
 2. **Declining purchase frequency:**
-   - Orders per Customer: -6.5% over period (2.81 → 2.61)
+   - **Orders per Customer:** -6.5% over period (2.81 → 2.61)
    - **Action needed:** Implement loyalty program to re-engage customers
 
 3. **Underutilized age groups:**
