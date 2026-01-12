@@ -52,7 +52,7 @@ Based on the `synthetic_online_retail_data.csv` analysis, the dashboard revealed
 
 ### Analytical Stack
 * **Visualization:** Power BI Desktop
-* **Data Transformation:** Python (Pandas) for pre-processing / Power Query (M).
+* **Data Transformation:** Power Query (M).
 * **Modeling:** DAX (Data Analysis Expressions)
 
 ### Key DAX Methodologies
@@ -60,8 +60,3 @@ The core visualization relies on a calculated **Diverging Scale**:
 * **Negative Sentiment (Scores 1 & 2):** Converted to negative values to plot left of the Y-axis.
 * **Neutral Sentiment (Score 3):** Bisected (50/50 split) across the axis to minimize visual bias.
 * **Positive Sentiment (Scores 4 & 5):** plotted positively to visualize net satisfaction breadth.
-
-```dax
-// Example Logic for Diverging Axis
-Chart - 3 Stars (Neg) = -0.5 * [% Score 3]
-Chart - 2 Stars = -1 * [% Score 2]
