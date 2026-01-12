@@ -186,9 +186,9 @@ Use these slicers to drill down into specific customer segments and analyze thei
 
 ## 📞 Contact & License
 
-**Author:** [Eugene Yeuseyenka](https://github.com/your-username)  
-**Email:** [your.email@example.com](mailto:your.email@example.com)  
-**LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
+**Author:** [Eugene Yeuseyenka](https://github.com/yeuseyenka)  
+**Email:** [your.email@example.com](eyeuseyenka@gmail.com)  
+**LinkedIn:** [linkedin.com/in/your-profile](https://www.linkedin.com/in/eugene-yeuseyenka/)
 
 **License:** MIT License — free to use for education, portfolio, and commercial purposes.
 
@@ -208,10 +208,10 @@ Use these slicers to drill down into specific customer segments and analyze thei
 | Version | Date | Updates |
 |---------|------|---------|
 | 1.0 | 29 Dec 2025 | Initial dashboard release |
-| — | — | Additional features coming soon |
+| — | — | Not planned |
 
 ---
 
 **Last Updated:** 29 Dec 2025  
 **Status:** ✅ Active and Maintained  
-**Next Update:** Q1 2026
+**Next Update:** Not planned
