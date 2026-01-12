@@ -8,13 +8,13 @@
 
 Interactive Power BI dashboard for analyzing customer behavior and lifetime value in e-commerce. The report identifies key demographic segments, evaluates customer satisfaction, and helps determine target groups for retention and upsell actions.
 
-**Data Period:** Jan 2025 – Dec 2025  
+**Data Period:** Jan 2023 – Dec 2025  
 **Number of Customers:** 331  
-**Total Revenue:** $703,841  
+**Total Revenue 2025:** $703,841  
 
 ---
 
-## 🎯 Key KPIs
+## 🎯 Key KPIs 2025
 
 | Metric | Value | Trend |
 |--------|-------|-------|
@@ -79,102 +79,139 @@ Negative % := DIVIDE(
     CALCULATE(COUNTROWS('Online Retail'), 'Online Retail'[review_score] IN {1, 2}),
     CALCULATE(COUNTROWS('Online Retail'), NOT ISBLANK('Online Retail'[review_score]))
 ) * 100
-Slicers (Filters)
-Year: 2025
+```
 
-Category & Product: All / Specific
+## 🔧 Slicers (Filters)
 
-Payment Method: All / Card / Cash
+The dashboard includes the following interactive filters:
 
-City: All / Specific cities
+| Filter | Options |
+|--------|---------|
+| **Year** | 2025 |
+| **Category & Product** | All / Specific categories |
+| **Payment Method** | All / Card / Cash |
+| **City** | All / Specific cities |
+| **Age Bin** | All / 18-24, 25-34, 35-44, 45-54, 55-64, 65-74 |
+| **Gender** | All / Female / Male / Not disclosed |
 
-Age Bin: All / 18-24, 25-34, 35-44, 45-54, 55-64, 65-74
+Use these slicers to drill down into specific customer segments and analyze their behavior patterns.
 
-Gender: All / Female / Male / Not disclosed
+---
 
-📋 Business Insights
-✅ Strengths
-Youth (18-24) — Most valuable customers:
+## 📋 Business Insights
 
-47% of total revenue ($331K)
+### ✅ Strengths
 
-High AOV ($769)
+1. **Youth (18-24) — Most valuable customers:**
+   - 47% of total revenue ($331K)
+   - High AOV ($769)
+   - Good satisfaction score (3.92/5)
 
-Good satisfaction score (3.92/5)
+2. **High satisfaction** in key categories:
+   - Sports & Outdoors: 79% positive ratings
+   - Home & Living: 74% positive ratings
 
-High satisfaction in Sports & Outdoors and Home & Living categories (79% and 74% positive ratings)
+3. **Stable customer portfolio:** 331 customers with regular purchase patterns
 
-Stable portfolio: 331 customers with regular purchases
+### ⚠️ Problem Areas
 
-⚠️ Problem Areas
-Electronics & Fashion — High share of negative reviews:
+1. **Electronics & Fashion — High negative feedback:**
+   - **Electronics:** 13% negative reviews (quality or shipping issues?)
+   - **Fashion:** 25% negative reviews (sizing, material, or description mismatches?)
 
-Electronics: 13% negative (quality? shipping issues?)
+2. **Declining purchase frequency:**
+   - Orders per Customer: -6.5% over period (2.81 → 2.61)
+   - **Action needed:** Implement loyalty program to re-engage customers
 
-Fashion: 25% negative (size, material?)
+3. **Underutilized age groups:**
+   - **65-74 age group:** Only 3% of revenue despite 13 customers
+   - **Opportunity:** Target with tailored marketing and adapted UX
 
-Declining Orders per Customer: -6.5% over period
+### 🎯 Strategic Recommendations
 
-Customers ordering less frequently (2.81 → 2.61)
+| Challenge | Action | Expected Impact |
+|-----------|--------|-----------------|
+| **Electronics/Fashion quality** | Conduct quality audit, improve descriptions, update product photos | Reduce negative reviews by 30-40% |
+| **Youth retention** | Launch referral bonus program (already loyal) | Increase repeat purchases |
+| **Older customers** | Create landing page with large fonts, free shipping, special offers | Increase 65-74 segment revenue by 50% |
+| **Declining order frequency** | Email campaigns promoting repeat purchases | Reverse -6.5% trend |
 
-Loyalty program implementation needed
+---
 
-Underutilized age groups:
+## 📂 Project Structure
 
-65-74: only 3% of revenue with 13 customers
-
-Opportunity: targeted campaigns, adapted UX
-
-🎯 Recommendations
-For Electronics/Fashion: conduct quality audit, improve product descriptions, update photos
-
-For youth (18-24): implement referral bonus program (they're already loyal)
-
-For older customers: create landing page with large fonts, free shipping, special offers
-
-General: launch email campaign promoting repeat purchases (combat -6.5% decline in Orders per Customer)
-
-📂 File Structure
-text
 📁 ecommerce-powerbi-insights/
+│
 ├── 📄 README.md (this file)
-├── 📊 E-commerce-Customer-Insights.pbix (Power BI file)
+├── 📊 E-commerce-Customer-Insights.pbix (main Power BI report)
+│
 ├── 📸 screenshots/
-│   ├── dashboard-overview.png
-│   ├── customer-segmentation.png
-│   └── review-scoring.png
-└── 📝 notes.md (additional notes, DAX formulas)
-🚀 How to Use
-To View the Report
-Download the E-commerce-Customer-Insights.pbix file
+│ ├── dashboard-overview.png
+│ ├── customer-segmentation.png
+│ ├── customer-review-scoring.png
+│ └── sales-by-age-gender.png
+│
+├── 📝 data/
+│ └── synthetic-online-retail.xlsx
+│
+└── 📚 docs/
+├── DAX-measures.md
+├── data-dictionary.md
+└── business-rules.md
 
-Open in Power BI Desktop (free download at powerbi.microsoft.com)
 
-Refresh the data source if needed (if connected to a database or Excel)
+---
 
-Use the slicers on the left to filter by categories, age groups, cities
+## 🚀 How to Use
 
-To Edit/Adapt
-Edit DAX measures in Home → Manage Metrics
+### To View the Report
 
-Change the data source (Home → Transform data)
+1. **Download** the `E-commerce-Customer-Insights.pbix` file from this repository
+2. **Open** it in Power BI Desktop (free download at [powerbi.microsoft.com](https://powerbi.microsoft.com))
+3. **Refresh** the data source if connected to external database or Excel file
+4. **Explore** using the interactive slicers on the left panel:
+   - Filter by age groups, categories, cities, and gender
+   - Hover over charts for tooltips
+   - Click to cross-filter between visuals
 
-Add new visuals, slicers, or measures as needed
+### To Edit/Customize
 
-Publish to Power BI Service for online access (File → Publish)
+1. **Edit DAX measures:** `Home → Manage Metrics`
+2. **Update data source:** `Home → Transform data` (Power Query)
+3. **Add new visuals:** `Insert → [Visual Type]`
+4. **Modify colors/formatting:** `Format pane` (right sidebar)
+5. **Publish online:** `File → Publish` to Power BI Service
 
-📞 Contact & License
-Author: Eugene Yeuseyenka
-Email: your.email@example.com
-LinkedIn: Link to your profile
+---
 
-License: MIT License — free to use for education and portfolio purposes.
+## 📞 Contact & License
 
-🔗 Relevant Links
-Power BI Documentation
+**Author:** [Eugene Yeuseyenka](https://github.com/your-username)  
+**Email:** [your.email@example.com](mailto:your.email@example.com)  
+**LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
 
-DAX Function Reference
+**License:** MIT License — free to use for education, portfolio, and commercial purposes.
 
-Power Query M Reference
+---
 
-Last Updated: 29 Dec 2025 | Status: ✅ Active and Maintained
+## 🔗 Helpful Resources
+
+- [Power BI Official Documentation](https://docs.microsoft.com/en-us/power-bi/)
+- [DAX Function Reference](https://dax.guide/)
+- [Power Query M Language Guide](https://docs.microsoft.com/en-us/powerquery-m/)
+- [McKinsey on Customer Experience](https://www.mckinsey.com/business-functions/marketing-and-sales/our-insights)
+
+---
+
+## 📊 Changelog
+
+| Version | Date | Updates |
+|---------|------|---------|
+| 1.0 | 29 Dec 2025 | Initial dashboard release |
+| — | — | Additional features coming soon |
+
+---
+
+**Last Updated:** 29 Dec 2025  
+**Status:** ✅ Active and Maintained  
+**Next Update:** Q1 2026
