@@ -124,15 +124,15 @@ Use these slicers to drill down into specific customer segments and analyze thei
 
 ## 📂 Project Structure
 
-📁 ecommerce-powerbi-insights/
+ecommerce-powerbi-insights/
 │
-├── 📄 README.md (this file)
-├── 📊 E-commerce Sales.pbix (main Power BI report)
+├── README.md (this file)
+├── E-commerce Sales.pbix (main Power BI report)
 │
-├── 📁 dataset/
+├── dataset/
 │ └── synthetic_online_retail_data.csv (source data)
 │
-└── 📁 screenshots/
+└── screenshots/
 ├── E-commerce - Sales Analysis.jpg
 └── E-commerce - Customer Insights.jpg
 
