@@ -122,42 +122,16 @@ Use these slicers to drill down into specific customer segments and analyze thei
 
 ---
 
-## 📂 Project Structure
-
-ecommerce-powerbi-insights/
-│
-├── README.md (this file)
-├── E-commerce Sales.pbix (main Power BI report)
-│
-├── dataset/
-│ └── synthetic_online_retail_data.csv (source data)
-│
-└── screenshots/
-├── E-commerce - Sales Analysis.jpg
-└── E-commerce - Customer Insights.jpg
-
-
----
-
 ## 🚀 How to Use
 
 ### To View the Report
 
-1. **Download** the `E-commerce-Customer-Insights.pbix` file from this repository
+1. **Download** the `E-commerce Sales.pbix` file from this repository
 2. **Open** it in Power BI Desktop (free download at [powerbi.microsoft.com](https://powerbi.microsoft.com))
-3. **Refresh** the data source if connected to external database or Excel file
-4. **Explore** using the interactive slicers on the left panel:
+3. **Explore** using the interactive slicers on the left panel:
    - Filter by age groups, categories, cities, and gender
    - Hover over charts for tooltips
    - Click to cross-filter between visuals
-
-### To Edit/Customize
-
-1. **Edit DAX measures:** `Home → Manage Metrics`
-2. **Update data source:** `Home → Transform data` (Power Query)
-3. **Add new visuals:** `Insert → [Visual Type]`
-4. **Modify colors/formatting:** `Format pane` (right sidebar)
-5. **Publish online:** `File → Publish` to Power BI Service
 
 ---
 
