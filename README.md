@@ -64,22 +64,6 @@ Comparison of sales by age groups and gender:
 - **Database:** Excel / CSV  
 - **Version Control:** Git / GitHub  
 
-### DAX Measures Used
-
-```dax
-Total Orders := COUNTROWS('Online Retail')
-
-Distinct Customers := DISTINCTCOUNT('Online Retail'[customer_id])
-
-Orders per Customer := DIVIDE([Total Orders], [Distinct Customers])
-
-Average Order Value per Customer := DIVIDE([Total Revenue], [Distinct Customers])
-
-Negative % := DIVIDE(
-    CALCULATE(COUNTROWS('Online Retail'), 'Online Retail'[review_score] IN {1, 2}),
-    CALCULATE(COUNTROWS('Online Retail'), NOT ISBLANK('Online Retail'[review_score]))
-) * 100
-```
 
 ## 🔧 Slicers (Filters)
 
@@ -87,9 +71,9 @@ The dashboard includes the following interactive filters:
 
 | Filter | Options |
 |--------|---------|
-| **Year** | 2025 |
-| **Category & Product** | All / Specific categories |
-| **Payment Method** | All / Card / Cash |
+| **Year** | 2025 / 2024 |
+| **Category & Product** | All / Specific categories & products |
+| **Payment Method** | All / Bank Transfer / Cash on Delivery / Credit Card |
 | **City** | All / Specific cities |
 | **Age Bin** | All / 18-24, 25-34, 35-44, 45-54, 55-64, 65-74 |
 | **Gender** | All / Female / Male / Not disclosed |
@@ -143,21 +127,14 @@ Use these slicers to drill down into specific customer segments and analyze thei
 📁 ecommerce-powerbi-insights/
 │
 ├── 📄 README.md (this file)
-├── 📊 E-commerce-Customer-Insights.pbix (main Power BI report)
+├── 📊 E-commerce Sales.pbix (main Power BI report)
 │
-├── 📸 screenshots/
-│ ├── dashboard-overview.png
-│ ├── customer-segmentation.png
-│ ├── customer-review-scoring.png
-│ └── sales-by-age-gender.png
+├── 📁 dataset/
+│ └── synthetic_online_retail_data.csv (source data)
 │
-├── 📝 data/
-│ └── synthetic-online-retail.xlsx
-│
-└── 📚 docs/
-├── DAX-measures.md
-├── data-dictionary.md
-└── business-rules.md
+└── 📁 screenshots/
+├── E-commerce - Sales Analysis.jpg
+└── E-commerce - Customer Insights.jpg
 
 
 ---
